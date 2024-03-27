@@ -189,3 +189,15 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 16320)
 
 
+Started GET "/" for ::1 at 2024-03-27 16:47:39 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_form.html.erb (Duration: 0.4ms | Allocations: 354)
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 763)
+  Rendered home/_header.html.erb (Duration: 1.0ms | Allocations: 648)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 35340)
+Completed 200 OK in 29ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 39699)
+
+
