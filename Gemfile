@@ -2,11 +2,8 @@ source "https://rubygems.org"
 
 ruby "3.2.2"
 
-# Simple form
-gem 'simple_form'
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.2"
+gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -20,6 +17,9 @@ gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
+# Devise for authenticate
+gem 'devise', '~> 4.9', '>= 4.9.3'
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
@@ -28,12 +28,6 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-
-gem 'carrierwave', '~> 3.0', '>= 3.0.6'
-gem 'figaro', '~> 1.2'
-gem 'mini_magick', '~> 4.12'
-gem 'stripe', '~> 10.11'
-gem 'trix-rails', '~> 2.3'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -74,14 +68,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem "bulma-rails"
-gem "devise", "~> 4.9"
-gem "sidekiq"
-
-group :development, :test do
-  gem "better_errors"
-  gem "guard"
-  gem "guard-livereload"
-end
-
-gem "hotwire-rails", "~> 0.1.3"
