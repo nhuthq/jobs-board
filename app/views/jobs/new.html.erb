@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+<div class="card">
+  <div class="card-header">
+    <h2>Add New Job</h2>
+  </div>
+  <div class="card-body">
+    <%= render 'form', job: @job %>
+  </div>
+</div>
+
+<br/>
+<div>
+  <%= link_to "Back", jobs_path, class: "btn btn-secondary" %>
+</div>

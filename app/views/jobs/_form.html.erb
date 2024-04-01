@@ -1,0 +1,71 @@
+<%= form_with(model: job) do |form| %>
+  <% if job.errors.any? %>
+    <div style="color: red">
+      <h2>
+        <% pluralize(job.error.count, "error") %>prohibited this post from being saved:</h2>
+      <ul>
+        <% job.error.each do |error| %>
+          <li><%= error.full_messages %>></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :title%>
+    <%= form.text_field :title, class: 'form-control', required: true, autofocus: true, placeholder: 'Junior Frontend Developer...' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :title, 'Apply link' %>
+    <%= form.text_field :apply_url, class: 'form-control', required: true, placeholder: 'https://...' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :level%>
+    <%= form.select :level, %w[Fresher Junior Senior Leader Manger] %>
+    <br/>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :job_type%>
+    <%= form.select :job_type, %w[Full-time Part-time Contract Freelance] %>
+    <br/>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :location %>
+    <%= form.text_field :location, class: 'form-control', required: true, placeholder: 'Examples: "San Francisco, CA", "Seattle", "Anywhere"' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :remoteable %>
+    <%= form.check_box :remoteable %>
+    <i class="fa fa-wifi">Work can be done remotely</i>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :is_published%>
+    <%= form.check_box :is_published %>
+  </div>
+  <br/>
+
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, size: "60x10" %>
+  </div>
+
+  <br/><br/>
+
+  <div class="action">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
