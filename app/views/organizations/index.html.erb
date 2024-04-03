@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
+  <h1 class="title">Organizations</h1>
+  <br/><br/>
+
+  <% @organization.each do |organization| %>
+    <div class="row">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to organization.name, organization %></h5>
+          <p class="card-text"><%= organization.short_description %></p>
+          <p class="card-text"><%= organization.address %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <br/><br/>
+
+  <%= link_to "New Organization", new_organization_path, class: 'btn btn-primary' %>
+
+<% else %>
+
+  <h1>Hello!</h1>
+  <p>This is my New Jobs Board</p>
+
+<% end %>

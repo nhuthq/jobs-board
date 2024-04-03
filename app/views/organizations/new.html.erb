@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+<div class="card">
+  <div class="card-header">
+    <h2>Add New Organization</h2>
+  </div>
+  <div class="card-body">
+    <%= render 'form', organization: @organization %>
+  </div>
+</div>
+
+<br/>
+<div>
+  <%= link_to "Back", organizations_path, class: "btn btn-secondary" %>
+</div>

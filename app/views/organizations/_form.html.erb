@@ -1,0 +1,96 @@
+<%= form_with(model: @organization) do |form| %>
+  <% if organization.errors.any? %>
+    <div style="color: red">
+      <h2>
+        <% pluralize(organization.error.count, "error") %>prohibited this post from being saved:</h2>
+      <ul>
+        <% job.error.each do |error| %>
+          <li><%= error.full_messages %>></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control', required: true, autofocus: true, placeholder: 'Zigexn VeNtura' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: 'form-control', required: true, placeholder: '131 Xo Viet Nghe Tinh, Binh Thanh,...' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :country %>
+    <%= form.text_field :country, class: 'form-control', required: true, placeholder: 'Vietnam' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :tax_code%>
+    <%= form.text_field :tax_code, required: true%>
+    <br/>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :company_size %>
+    <%= form.select :company_size, %w[5-10 11-50 51-100 Over100] %>
+    <br/>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :working_days%>
+    <%= form.select :working_days, %w[Monday-Friday Monday-Saturday Full] %>
+    <br/>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :company_type%>
+    <%= form.select :company_type, %w[Product Outsource] %>
+    <br/>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :landing_page, 'Landing Page'%>
+    <%= form.text_field :landing_page, class: 'form-control', placeholder: 'https://...' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :status%>
+    <%= form.select :status, %w[Active Pending Inactive] %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :ot_policy, 'OT Policy' %>
+    <%= form.check_box :ot_policy %>
+    <i class="fa fa-wifi">No OT</i>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :short_description %>
+    <%= form.text_field :short_description, class: 'form-control', placeholder: 'Make things done,...' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, size: "60x10" %>
+  </div>
+
+  <br/><br/>
+
+  <div class="action">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
