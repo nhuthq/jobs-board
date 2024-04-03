@@ -5,11 +5,12 @@ class JobsController < ApplicationController
 
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.all.order("created_at DESC")
   end
 
   # GET /jobs.json
-  def show; end
+  def show
+  end
 
   # GET /jobs/new
   def new
@@ -23,14 +24,28 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
+    @job = current_user.jobs.build(job_params)
 
+    respond_to do |format|
+      if @job.save
+        format.html { redirect_to @job, notice: 'Your job was created successfully!' }
+        format.json { render :show, status: :created, location: @job }
+      else
+        format.html { render :new }
+        format.json { render json: @job.errors, status: :unprocessable_entity }
+      end
+    end
+
+  rescue Stripe::CardError => e
+    flash.alert = e.message
+    render action: :new
   end
 
   # PATCH/PUT /jobs/1
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
+        format.html { redirect_to @job, notice: 'Your job was updated successfully!.' }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
@@ -43,7 +58,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to jobs_url, notice: 'Your job was destroyed successfully!.' }
       format.json { head :no_content }
     end
   end
@@ -61,10 +76,8 @@ class JobsController < ApplicationController
                                 :level,
                                 :job_type,
                                 :location,
-                                :job_author,
                                 :remoteable,
                                 :apply_url,
-                                :is_published,
-                                :published_at)
+                                :is_published)
   end
 end

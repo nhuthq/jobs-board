@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+<% content_for :page_title, @job.title %>
+<section class="section header'">
+  <div class="container">
+    <h1><%= @job.title %></h1>
+    <h5><%= @job.published_at %></h5>
+    <h5><%= @job.level %></h5>
+    <h5><%= @job.location %></h5>
+
+    <br/><br/>
+
+    <div class="col">
+      <%= link_to "Edit", edit_job_path(@job), class: 'btn btn-primary' %>
+      <%= link_to "Delete", @job, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</section>
+
+<hr/><br/>
+
+<section class="section content">
+  <div class="container">
+    <%= @job.description %>
+  </div>
+</section>
+
+<br/>
+
+<section class="section comments">
+<!--  <div class="container">-->
+<!--    <h2><strong><%#= @post.comments.count %></strong> Comments</h2>-->
+    <%#= render 'comments/index', post: @post %>
+<!--    <div class="comment-form mt-5">-->
+<!--      <h2 class="subtitle is-3">Leave a comment</h2>-->
+      <%#= render 'comments/form', object: [@post, @comment] %>
+<!--    </div>-->
+<!--  </div>-->
+</section>
+
+<br/>
+<div class="container">
+  <%= link_to "Back", jobs_path, class: "btn btn-secondary" %>
+</div>
+
+<br/>
+

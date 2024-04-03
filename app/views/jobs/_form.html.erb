@@ -1,8 +1,8 @@
-<%= form_with(model: job) do |form| %>
-  <% if job.errors.any? %>
+<%= form_with(model: @job) do |form| %>
+  <% if @job.errors.any? %>
     <div style="color: red">
       <h2>
-        <% pluralize(job.error.count, "error") %>prohibited this post from being saved:</h2>
+        <% pluralize(@job.error.count, "error") %>prohibited this post from being saved:</h2>
       <ul>
         <% job.error.each do |error| %>
           <li><%= error.full_messages %>></li>
@@ -19,7 +19,7 @@
   <br/>
 
   <div class="form-group">
-    <%= form.label :title, 'Apply link' %>
+    <%= form.label :apply_url, 'Apply link' %>
     <%= form.text_field :apply_url, class: 'form-control', required: true, placeholder: 'https://...' %>
   </div>
   <br/>
